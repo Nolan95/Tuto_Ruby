@@ -12,6 +12,7 @@ def demo
 end
 
 puts demo { |nom| puts "Comment ca va #{nom}?"}
+
 =end
 
 eleves = [
@@ -29,6 +30,18 @@ def alamoyenne(eleves)
   end
 end
 
-alamoyenne(eleves) do |eleve|
-  puts "#{eleve[:nom]} a la moyenne"
-end
+afficherQuiALamoyenne = Proc.new {|eleve| puts "#{eleve[:nom]} a la moyenne"}
+afficherQuiALamoyenne.call({note:4, nom:'Laura'})
+#alamoyenne(eleves, &afficherQuiALamoyenne)
+
+=begin
+a = [1, 2, 3]
+b = [2, 4, 6]
+
+carre = Proc.new {|n| n**2}
+a.map!(&carre)
+b.map!(&carre)
+
+puts a.inspect
+puts b.inspect
+=end
