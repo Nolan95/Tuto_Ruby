@@ -13,4 +13,4 @@ equipe = {
   }
 }
 
-equipe.length
+puts equipe
